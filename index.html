@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bee Scented Skincare</title>
+
+    <!-- Google Font -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:'Poppins', sans-serif;
+            background:#fffdf8;
+            color:#333;
+        }
+
+        html{
+            scroll-behavior:smooth;
+        }
+
+        /* NAVBAR */
+
+        nav{
+            position:fixed;
+            width:100%;
+            top:0;
+            left:0;
+            background:rgba(255,255,255,0.95);
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:20px 8%;
+            z-index:1000;
+            box-shadow:0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        nav h2{
+            color:#c79b2c;
+            font-size:28px;
+        }
+
+        nav ul{
+            display:flex;
+            list-style:none;
+            gap:30px;
+        }
+
+        nav ul li a{
+            text-decoration:none;
+            color:#333;
+            font-weight:500;
+            transition:0.3s;
+        }
+
+        nav ul li a:hover{
+            color:#c79b2c;
+        }
+
+        /* HERO SECTION */
+
+         .hero{
+    position:relative;
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    padding:0 8%;
+}
+
+.slider{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+
+.slide{
+    position:absolute;
+    width:100%;
+    height:100%;
+    opacity:0;
+    transition:opacity 1s ease-in-out;
+}
+
+.slide.active{
+    opacity:1;
+}
+
+.slide img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.hero::after{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.35);
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:600px;
+    color:white;
+}
+            
+
+           
+
+        .hero-content{
+            max-width:600px;
+            color:white;
+        }
+
+        .hero-content h1{
+            font-size:70px;
+            line-height:1.1;
+            margin-bottom:20px;
+        }
+
+        .hero-content p{
+            font-size:20px;
+            line-height:1.8;
+            margin-bottom:35px;
+        }
+
+        .btn{
+            display:inline-block;
+            padding:16px 35px;
+            background:#f7d774;
+            color:#333;
+            text-decoration:none;
+            border-radius:50px;
+            font-weight:600;
+            transition:0.3s;
+        }
+
+        .btn:hover{
+            background:#e7c04f;
+            transform:translateY(-2px);
+        }
+
+        /* ABOUT */
+
+        .about{
+            padding:100px 8%;
+            text-align:center;
+        }
+
+        .about h2{
+            font-size:42px;
+            margin-bottom:25px;
+            color:#c79b2c;
+        }
+
+        .about p{
+            max-width:800px;
+            margin:auto;
+            line-height:1.9;
+            font-size:18px;
+        }
+
+        /* PRODUCTS */
+
+        .products{
+            padding:100px 8%;
+            background:#fff7e8;
+        }
+
+        .products h2{
+            text-align:center;
+            font-size:42px;
+            margin-bottom:60px;
+            color:#c79b2c;
+        }
+
+        .product-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+            gap:30px;
+        }
+
+        .product-card{
+            background:white;
+            border-radius:20px;
+            overflow:hidden;
+            box-shadow:0 5px 20px rgba(0,0,0,0.08);
+            transition:0.3s;
+        }
+
+        .product-card:hover{
+            transform:translateY(-8px);
+        }
+
+        .product-card img{
+            width:100%;
+            height:250px;
+            object-fit:cover;
+        }
+
+        .product-info{
+            padding:25px;
+        }
+
+        .product-info h3{
+            margin-bottom:12px;
+            color:#c79b2c;
+        }
+
+        .product-info p{
+            line-height:1.7;
+            font-size:15px;
+        }
+
+        /* CONTACT */
+
+        .contact{
+            padding:100px 8%;
+            text-align:center;
+        }
+
+        .contact h2{
+            font-size:42px;
+            margin-bottom:25px;
+            color:#c79b2c;
+        }
+
+        .contact p{
+            margin-bottom:12px;
+            font-size:18px;
+        }
+
+        /* FOOTER */
+
+        footer{
+            background:#c79b2c;
+            color:white;
+            text-align:center;
+            padding:25px;
+        }
+
+        /* MOBILE */
+
+        @media(max-width:768px){
+
+            nav{
+                flex-direction:column;
+                gap:15px;
+            }
+
+            .hero{
+                text-align:center;
+                justify-content:center;
+            }
+
+            .hero-content h1{
+                font-size:45px;
+            }
+
+            .hero-content p{
+                font-size:17px;
+            }
+
+            nav ul{
+                gap:15px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <h2>Bee Scented Skincare</h2>
+
+        <h3>Natural.Pure.You.</h3>
+
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+    </nav>
+
+    <!-- HERO SECTION -->
+
+     <section class="hero">
+
+    <div class="slider">
+
+        <div class="slide active">
+            <img src="hero1.jpeg">
+        </div>
+
+        <div class="slide">
+            <img src="hero2.jpeg">
+        </div>
+
+        <div class="slide">
+            <img src="hero3.jpeg">
+        </div>
+
+    </div>
+
+    <div class="hero-content">
+
+
+        <p>
+            Luxury Skincare and Bodycare products designed to nourish,
+            brighten and elevate your glow.
+        </p>
+
+        <a href="#products" class="btn">
+            Shop Collection
+        </a>
+
+    </div>
+
+</section>
+
+
+
+    <!-- ABOUT -->
+
+    <section class="about" id="about">
+
+        <h2>About Bee Scented</h2>
+
+        <p>
+            Bee Scented Skincare offers luxurious face and body products
+            created to support healthy, glowing and confident skin.
+            Our collection includes brightening soaps, exfoliating scrubs,
+            serums and skincare essentials suitable for your self-care routine.
+        </p>
+
+    </section>
+
+    <!-- PRODUCTS -->
+
+    <section class="products" id="products">
+
+        <h2>Our Products</h2>
+
+        <div class="product-grid">
+
+            <div class="product-card">
+                <img src="tumeric-honey-soap.jpeg">
+
+                <div class="product-info">
+                    <h3>Tumeric Honey Soap</h3>
+
+                    <p>
+                        Helps brighten skin and improve uneven tone while leaving skin soft and refreshed.
+                    </p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="acne-soap.jpeg">
+
+                <div class="product-info">
+                    <h3>Acne Soap</h3>
+
+                    <p>
+                        Gently cleanses and helps reduce excess oil and blemishes.
+                    </p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="kojic-soap.jpeg">
+
+                <div class="product-info">
+                    <h3>Kojic Acid Soap</h3>
+
+                    <p>
+                        Supports brighter skin and helps improve the appearance of dark marks.
+                    </p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="charcoal-soap.jpeg">
+
+                <div class="product-info">
+                    <h3>Charcoal Soap</h3>
+
+                    <p>
+                        Deep cleansing soap designed to remove dirt and impurities from the skin.
+                    </p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="glycolic-soap.jpeg">
+
+                <div class="product-info">
+                    <h3>Glycolic Soap</h3>
+
+                    <p>
+                        Helps exfoliate dead skin cells for smoother and more radiant skin.
+                    </p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="glutathione-soap.jpeg">
+
+                <div class="product-info">
+                    <h3>Glutathione Soap</h3>
+
+                    <p>
+                        Brightening soap formulated to support healthy glowing skin.
+                    </p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="dark-spot-serum.jpeg">
+
+                <div class="product-info">
+                    <h3>Dark Spot Serum</h3>
+
+                    <p>
+                        Lightweight serum designed to target uneven skin tone and dark spots.
+                    </p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="face-body-scrub.jpeg">
+
+                <div class="product-info">
+                    <h3>Face Body Scrub</h3>
+
+                    <p>
+                        Exfoliating scrub that leaves skin smoother, softer and refreshed.
+                    </p>
+                </div>
+            
+            </div>
+
+
+    </section>
+
+    <!-- CONTACT -->
+
+    <section class="contact" id="contact">
+
+        <h2>Contact Us</h2>
+
+        <p>
+            WhatsApp: 060 520 7088
+        </p>
+
+        <p>
+            Email: accounts@beescented.co.za
+        </p>
+
+        <p>
+            Website: www.beescented.store
+        </p>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 Bee Scented Skincare. All Rights Reserved.
+        </p>
+
+    </footer>
+
+    <script>
+
+const slides = document.querySelectorAll('.slide');
+
+let currentSlide = 0;
+
+function showSlide(index){
+
+    slides.forEach((slide)=>{
+        slide.classList.remove('active');
+    });
+
+    slides[index].classList.add('active');
+
+}
+
+setInterval(()=>{
+
+    currentSlide++;
+
+    if(currentSlide >= slides.length){
+        currentSlide = 0;
+    }
+
+    showSlide(currentSlide);
+
+}, 4000);
+
+</script>
+
+</body>
+
+</html>
